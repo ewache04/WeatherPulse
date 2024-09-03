@@ -1,0 +1,32 @@
+<!--app/templates/info_templates/our_team.html-->
+{% extends url_patterns['base']['render'] %}
+
+{% block content %}
+    <!-- Team Section -->
+    <div class="container-fluid text-center team-section">
+        <h2>OUR TEAM MEMBERS</h2>
+        <div class="row text-center slideanim">
+            <div class="col-sm-12">
+                <div class="thumbnail">
+                    <img alt="Jeremiah Ochepo" class="img-circle team-member-img"
+                         src="{{ url_for('static', filename=url_patterns['static']['images']['team_members'] + '/jeremiah_ochepo.png') }}">
+                    <h4>Jeremiah Ochepo</h4>
+                    <p>Lead Developer</p>
+                    <p>Jeremiah is a visionary and passionate learner with a unique blend of business acumen and technical expertise. With a background in business and a Master's degree in Computer Science, specializing in Data Science, Jeremiah thrives on transforming innovative ideas into tangible realities.</p>
+                    <p>As an AI enthusiast, he strongly believes in the power of responsible AI to achieve significant advancements across industries. Jeremiah is the driving force behind WeatherApp, leading the development team with a commitment to excellence and a keen eye for detail.</p>
+                    <p>In addition to WeatherApp, Jeremiah is actively involved in other groundbreaking projects, where he continues to push the boundaries of what's possible with technology. He is always eager to collaborate with fellow developers to create and implement cutting-edge features that enhance user experience and functionality.</p>
+                    <p>Jeremiah's passion for creating meaningful and impactful software is evident in every project he undertakes, making him not just a developer, but a true innovator in the tech world.</p>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+
+    <!-- Include the home button -->
+    {% include url_patterns['home_button']['render'] %}
+{% endblock %}
+
+
+
+

@@ -1,0 +1,59 @@
+<!--templates/base.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ session.get('app_name') }}</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename= url_patterns['static']['styles']) }}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Lato" rel="stylesheet">
+
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+    <!-- Loading Indicator -->
+    {% include 'loading_indicator.html' %}
+
+
+    <div class="container">
+        <header>
+            <!-- Include the top navigation bar -->
+            {% include url_patterns['top_navbar']['render'] %}
+        </header>
+
+        <main>
+
+            <div class="container">
+                {% block content %}
+                <!-- Page-specific content goes here -->
+                {% endblock %}
+            </div><br>
+        </main>
+    </div>
+
+
+    <!-- Include the footer -->
+    {% include url_patterns['footer']['render'] %}
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename= url_patterns['static']['script']) }}"></script>
+
+</body>
+</html>

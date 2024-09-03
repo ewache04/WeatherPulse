@@ -1,0 +1,13 @@
+<!--app/templates/footer.html-->
+<footer class="footer">
+    <div class="container text-center">
+
+        <!-- Include the weather_form -->
+        {% if session.get('weather_processing') %}
+            {% include url_patterns['weather_form']['render'] %}
+        {% endif %}
+
+        <p class="text-muted">© 2024 {{ session.get('app_name') }}. All rights reserved.</p>
+
+    </div>
+</footer>

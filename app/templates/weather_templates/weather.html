@@ -1,0 +1,67 @@
+<!-- app/templates/weather_templates/weather.html -->
+{% extends url_patterns['base']['render'] %}
+
+{% block content %}
+
+<div class="weather-info bg-grey">
+    {% if weather_data %}
+    <h2 class="panel text-center">
+        {{ weather_data['city']['name']}}
+        {% if region %}, {{ region }}{% endif %}
+        {% if country %}, {{ country }}{% else %}, {{ weather_data['city']['country'] }}{% endif %}
+        {% if weather_data['city']['population'] != 'N/A' %}
+            (Population: {{ weather_data['city']['population'] }})
+        {% endif %}
+    </h2>
+
+    <table class="table table-bordered">
+        <thead class="weather_thead">
+            <tr>
+                <th>Date</th>
+                <th>Temperature</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody class="text-left">
+            {% for day in weather_data['forecast'] %}
+                {% set date = day.date.split(' ')[0] %}
+                <tr class="weather-day"
+                    data-day="{{ loop.index0 }}"
+                    data-date="{{ day.date }}"
+                    data-temperature="{{ day.temperature }}"
+                    data-description="{{ day.description }}"
+                    data-sea_level="{{ day.sea_level }}"
+                    data-ground_level="{{ day.ground_level }}"
+                    data-humidity="{{ day.humidity }}"
+                    data-pressure="{{ day.pressure }}"
+                    data-wind_speed="{{ day.wind_speed }}"
+                    data-clouds="{{ day.clouds }}"
+                    data-visibility="{{ day.visibility }}"
+                    data-temp_max="{{ day.temp_max }}"
+                    data-temp_min="{{ day.temp_min }}"
+                    data-sunrise="{{ day.sunrise }}"
+                    data-sunset="{{ day.sunset }}"
+                    title="Weather info: click to get weather details on {{ day.date }}"
+                    style="background-color: {{ day_colors.get(date, '#ffffff') }};">
+                    <td>{{ day.date }}</td>
+                    <td>
+                        {{ day.temperature }}°C / {{ ((day.temperature * 9/5) + 32) | round(2) }}°F
+                    </td>
+
+                    <td>{{ day.description }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Include the weather details using Modal Structure -->
+    {% include url_patterns['weather_details']['render'] %}
+
+    {% elif session.get('error') %}
+        <p class="error text-center">{{ session.get('error') }}</p>
+    {% else %}
+        <p class="alert_message text-center">Invalid city or API key</p>
+    {% endif %}
+</div>
+
+{% endblock %}

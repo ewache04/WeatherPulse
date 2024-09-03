@@ -1,0 +1,24 @@
+<!-- app/templates/assistant_templates/assistant.html -->
+{% extends url_patterns['base']['render'] %}
+
+{% block content %}
+    <div class="container-fluid bg-grey">
+        {% if assistant_error %}
+            <p>{{ assistant_error }}</p>
+        {% elif assistant_text_response or assistant_detailed_response %}
+            {% if assistant_text_response %}
+                <h2 class="text-center">Initial Analysis</h2>
+                <pre class="wrap-text">{{ assistant_text_response }}</pre> <!-- Using <pre> to maintain line breaks -->
+            {% endif %}
+
+            {% if assistant_detailed_response %}
+                <h2 class="text-center">Detailed Guidance</h2>
+                <pre class="wrap-text">{{ assistant_detailed_response }}</pre> <!-- Using <pre> to maintain line breaks -->
+            {% endif %}
+        {% else %}
+            <p>No weather report available for analysis at the moment.</p>
+        {% endif %}
+    </div><br>
+    <!-- Include the home button -->
+    {% include url_patterns['home_button']['render'] %}
+{% endblock %}

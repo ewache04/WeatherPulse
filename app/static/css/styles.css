@@ -1,0 +1,467 @@
+/* app/static/css/styles.css */
+
+/* Loading Spinner CSS */
+.spinner-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.85); /* Slightly darker white background */
+    z-index: 9999;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    flex-direction: column;  /* Stack spinner and text vertically */
+    transform: translate(-50%, -50%); /* Ensure the overlay is centered */
+    display: none;           /* Hidden by default */
+}
+
+.spinner {
+    border: 20px solid #e0e0e0; /* Light gray background color */
+    border-radius: 50%;
+    border-top: 20px solid #e74c3c; /* Vibrant red color for the spinning part */
+    border-right: 20px solid #f1c40f; /* Yellow for more vibrancy */
+    border-bottom: 20px solid #2ecc71; /* Green for added contrast */
+    border-left: 20px solid #3498db; /* Blue color for balance */
+    width: 160px; /* Increased size for a more prominent spinner */
+    height: 160px; /* Increased size for a more prominent spinner */
+    animation: spin 3s linear infinite; /* Slower spin animation */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); /* Stronger shadow for a 3D effect */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-content {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.loading-content p {
+    font-size: 26px; /* Further increased font size for better readability */
+    color: #e74c3c; /* Red color to match the spinner */
+    font-weight: bold;
+    text-transform: uppercase; /* Uppercase text for emphasis */
+    letter-spacing: 1.5px; /* Increased letter spacing */
+    animation: fadeInOut 3s ease-in-out infinite; /* Smooth fade in and out animation */
+}
+
+.loading-content h2 {
+    font-size: 26px; /* Slightly larger heading for emphasis */
+    color: #333; /* Darker color for better readability */
+    margin-top: 15px;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+
+/* General Body Styling */
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.8;
+    color: #333333;  /* Darker gray for better readability */
+    margin-bottom: 60px; /* Should be equal to or greater than footer height */
+}
+
+/* Container Styling */
+.container {
+    padding: 5px; /* Adjust based on your navbar height 5 width 60% */
+    width: 80%;
+    margin: 0 auto;
+}
+
+.container-fluid {
+    padding: 5px 60px; /* Adjust based on your navbar height 5 width 60% */
+    margin: 0 auto;
+    height: 100%;
+}
+
+.bg-grey {
+    background-color: #c0c0c0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Logo Styling */
+.logo-small {
+    color: green;
+    font-size: 50px;
+}
+
+.logo {
+    color: green;
+    font-size: 200px;
+}
+
+/* Panel Styling */
+.panel {
+    border: 1px solid #f4511e;
+    border-radius: 0 !important;
+    transition: box-shadow 0.5s;
+}
+
+.panel:hover {
+    box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
+}
+
+.panel-footer .btn:hover {
+    border: 1px solid #f4511e;
+    background-color: #fff !important;
+    color: #f4511e;
+}
+
+.panel-heading {
+    color: #fff !important;
+    background-color: #f4511e !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+}
+
+.panel-footer {
+    background-color: white !important;
+}
+
+.panel-footer h3 {
+    font-size: 32px;
+}
+
+.panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.panel-footer .btn {
+    margin: 15px 0;
+    background-color: #f4511e;
+    color: #fff;
+}
+
+/* Heading Styles */
+h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #222222;  /* Darker gray for better readability */
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #333333;  /* Darker gray for better readability */
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+/* CSS to style text within <pre> tags for wrapping, readability, and avoiding horizontal scroll */
+.wrap-text {
+    font-family: 'Lato', sans-serif; /* Clean, modern font */
+    font-size: 16px; /* Comfortable reading size */
+    line-height: 1.6; /* Improved line spacing for readability */
+    color: #333; /* Darker color for better contrast and readability */
+    background-color: #f9f9f9; /* Light background to differentiate the text block */
+    padding: 15px; /* Padding around the text for better spacing */
+    border-radius: 8px; /* Rounded corners for a softer appearance */
+    white-space: pre-wrap; /* Preserves line breaks and allows text to wrap */
+    overflow-x: hidden; /* Hides horizontal scroll */
+    overflow-y: auto; /* Allows vertical scroll if needed */
+    word-break: break-word; /* Ensures long words or URLs break properly */
+    max-width: 100%; /* Ensures the content does not exceed the container's width */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border: 1px solid #ddd; /* Light border for subtle separation */
+}
+
+/* Additional styling for dark mode */
+@media (prefers-color-scheme: dark) {
+    .wrap-text {
+        color: #e0e0e0; /* Light text for better contrast in dark mode */
+        background-color: #2b2b2b; /* Darker background in dark mode */
+        border-color: #444; /* Darker border for dark mode */
+    }
+}
+
+
+/* Navbar Styling */
+.navbar-fixed-top {
+    margin-bottom: 0;
+    position: fixed;
+    background-color: #333333;  /* Darker background for better contrast */
+    z-index: 9999;
+    border: 0;
+    width: 100%;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-brand, .navbar-nav li a {
+    color: #ffffff !important;  /* White text for better contrast */
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #333333 !important;  /* Dark text on hover */
+    background-color: #ffffff !important;  /* White background on hover */
+}
+
+.navbar-toggle {
+    border-color: transparent;
+    color: #ffffff !important;  /* White toggle button for better contrast */
+}
+
+/* Table Styling */
+.table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table, .table th, .table td {
+    border: 1px solid #dddddd;  /* Light gray border */
+    padding: 8px;
+    text-align: center;
+}
+
+/* Weather Table Header Styling */
+.weather_thead {
+    background-color: black;
+    color: yellow;
+}
+
+/* Weather Day Row Styling */
+.weather-day {
+    cursor: pointer;
+    background-color: #f9f9f9; /* Light background by default */
+}
+
+.weather-day:nth-child(even) {
+    background-color: #f0f0f0;  /* Lighter background for even rows */
+}
+
+.weather-day:hover {
+    background-color: #e0e0e0;  /* Slightly darker gray on hover */
+}
+
+
+/* Weather Details Table Styling */
+.weather-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.weather-details-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd; /* Light gray border for rows */
+    border-right: 1px solid #ddd; /* Vertical line separating columns */
+}
+
+.weather-details-table td:last-child {
+    border-right: none; /* Remove the right border from the last column */
+}
+
+.weather-details-table tr:first-child td {
+    font-weight: bold;
+    background-color: #f2f2f2; /* Light gray background for the header row */
+}
+
+.weather-details-table .description-header {
+    font-weight: bold;
+}
+
+.weather-details-table td {
+    text-align: left; /* Align text to the left for better readability */
+}
+
+.weather-details-table td:last-child {
+    text-align: right; /* Align values to the right */
+}
+
+
+/* General team member image styling */
+.team-member-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Additional styling for the team section */
+.team-section {
+    background-color: #f7f7f7;
+    padding: 50px 0;
+}
+
+.team-section h2 {
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: #333;
+    font-weight: bold;
+}
+
+.team-section .thumbnail {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Ensures the thumbnail doesn't stretch too wide */
+    margin: auto; /* Centers the thumbnail */
+}
+
+.team-section .thumbnail h4 {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.team-section .thumbnail p {
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6; /* Improves readability by increasing line spacing */
+    margin-top: 10px;
+    text-align: left; /* Ensures text is aligned for easier reading */
+    padding: 0 10px; /* Adds padding to avoid text touching the edges */
+}
+
+/* Error Message Styling */
+.error {
+    color: #ff4444;  /* Red for error messages */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Form Container Styling */
+.form-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2px;
+    background-color: #ffffff;  /* White background */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Light shadow */
+}
+
+.form-inline .form-group {
+    margin: 10px 0;
+}
+
+.form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #333333;  /* Darker background for buttons */
+    border-color: #333333;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #444444;  /* Slightly lighter on hover */
+    border-color: #444444;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+}
+
+.modal-content {
+    background-color: #fefefe; /* White background for content */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px; /* Slight rounding of corners for a modern look */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+/* Modal Close Button Styling */
+.close {
+    color: red; /* Bright red for visibility */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer; /* Ensure the cursor is a pointer */
+    transition: color 0.3s ease, font-size 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.close:hover {
+    color: #d43f00; /* Slightly darker red on hover for better visibility */
+    text-decoration: none;
+    font-size: 50px; /* Slightly increase the size on hover */
+}
+
+.close:focus {
+    color: #d43f00; /* Match hover color on focus */
+    text-decoration: none;
+    outline: none; /* Remove the default focus outline */
+    font-size: 50px; /* Increase the size on focus */
+}
+
+/* Footer Styling */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333333;  /* Darker background */
+    padding: 5px 0;
+    margin-top: 125px;
+}
+
+.footer p {
+    margin: 0;
+    color: #ffffff;  /* White text for better readability */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+    }
+
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+}

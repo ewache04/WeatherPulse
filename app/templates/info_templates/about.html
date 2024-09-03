@@ -1,0 +1,28 @@
+<!--app/templates/info_templates/about.html-->
+{% extends url_patterns['base']['render'] %}
+
+{% block content %}
+    <!-- About Section -->
+    <div class="container-fluid text-center team-section">
+        <h2>About {{ session.get('app_name') }}</h2>
+        <div class="row text-center slideanim">
+            <div class="col-sm-12">
+                <div class="thumbnail">
+                    <p>Developed by <a href="{{ url_patterns['our_team']['redirect'] }}">Jeremiah Ochepo</a>, in collaboration with PM Accelerators</p>
+                    <p>{{ session.get('app_name') }} represents a significant leap in how we interact with weather information. Created to transform weather updates into actionable insights, this app provides precise and real-time weather data to keep users well-prepared for any conditions.</p>
+                    <p><a href="{{ url_patterns['our_team']['redirect'] }}">Jeremiah Ochepo</a>, a visionary with a background in both business and technology, led the development of {{ session.get('app_name') }}. His expertise in computer science and data science, combined with a passion for AI, drove the creation of this innovative tool.</p>
+                    <p>{{ session.get('app_name') }} embodies <a href="{{ url_patterns['our_team']['redirect'] }}">Jeremiah's</a> mission to eliminate weather surprises by making reliable data accessible and easy to understand. His vision is to ensure that everyone stays safe and informed, regardless of the weather.</p>
+                    <p>PM Accelerators, the driving force behind this project, is dedicated to empowering individuals and nurturing innovation in technology. They provide invaluable support and resources to bring ideas to life, fostering an environment where cutting-edge solutions can thrive.</p>
+                    <p>Through {{ session.get('app_name') }}, <a href="{{ url_patterns['our_team']['redirect'] }}">Jeremiah's</a> continues to push the boundaries of technology, aiming to enhance user experience with advanced features and a commitment to excellence, all supported by the innovative spirit of PM Accelerators.</p>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+
+    <!-- Include the home button -->
+    {% include url_patterns['home_button']['render'] %}
+{% endblock %}
+
+
